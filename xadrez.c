@@ -3,10 +3,12 @@
 
 int main() {
     // declarei as variáveis
-   int i = 1, a = 1, b = 1;
+   int i = 1, j = 1, k = 1, l = 1;
    char bispo[10] = "Bispo";
    char torre[10] = "Torre";
    char rainha[10] = "Rainha";
+   char cavalo[10] = "Cavalo";
+   int movimentocavalo = 1;
    
     /* usei o while no bispo, i = 1 e a cada repetição incrementa +1 no valor de i,
     então vai executa 5 vezes, quando i valer 6 o programa para e ele vai ter rodado 5 vezes.*/
@@ -15,18 +17,29 @@ int main() {
     i++;
    }
 
-   /* aqui eu usei o do-while, a = 1  e a cada repetição incrementa +1 no valor de a,
+   printf("\n");
+
+   /* aqui eu usei o do-while, j = 1  e a cada repetição incrementa +1 no valor de j,
     então vai executa 5 vezes, quando a valer 6 o programa para e ele vai ter rodado 5 vezes.*/
    do{
     printf("%s: direita\n", torre);
-    a++;
-   } while (a <= 5);
+    j++;
+   } while (j <= 5);
 
-   /* aqui usei o for, b = 1 e a cada repetição incrementa +1 no valor de b, 
-   então vai executa 8 vezes, quando b valer 9 o programa para e ele vai ter rodado 8 vezes.*/
-   for(b ; b <= 8; b++){
+   printf("\n");
+   /* aqui usei o for, k = 1 e a cada repetição incrementa +1 no valor de k, 
+   então vai executa 8 vezes, quando k valer 9 o programa para e ele vai ter rodado 8 vezes.*/
+   for(k ; k <= 8; k++){
     printf("%s: esquerda\n", rainha);
    }
    
+  printf("\n");
+
+while (movimentocavalo--){
+   for(l; l <= 2; l++){
+        printf("%s: Baixo\n", cavalo);
+    }
+    printf("%s: Esquerda\n", cavalo);
+}
     return 0;
 }
