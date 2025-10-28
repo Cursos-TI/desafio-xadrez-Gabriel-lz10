@@ -35,9 +35,13 @@ int main() {
    
   printf("\n");
 
+  /* criei a variável "movimentocavalo" e armazenei o valor 1 nela e no código 
+coloquei um decremento, assim só vai executar uma vez porque
+depois da primeira execução o 1 vai virar 0 e com isso não vai mais executar.*/
 while (movimentocavalo--){
    for(l; l <= 2; l++){
-        printf("%s: Baixo\n", cavalo);
+        printf("%s: Baixo\n", cavalo); /* o loop interno vai rodar 2 vezes e quando sai dele vai ter um printf que estar
+        no loop externo pronto pra executar o último movimento do cavalo.*/
     }
     printf("%s: Esquerda\n", cavalo);
 }
