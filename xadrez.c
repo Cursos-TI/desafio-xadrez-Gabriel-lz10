@@ -1,49 +1,62 @@
 #include <stdio.h>
+// fora do main declarei os procedimentos que eu usei como recursividade.
+void movertorre(int casa){
+    if (casa > 5 ){
+        printf("Torre: direita\n");
+        movertorre(casa - 1);
+    }
+}
 
+void moverrainha(int casa){
+    if (casa > 2 ){
+        printf("Rainha: esquerda\n");
+        moverrainha(casa - 1);
+    }
+}
+
+void moverbispo(int casa){
+    if (casa > 1 ){
+        printf("direita\n");
+        moverbispo(casa - 1);
+    }
+}
 
 int main() {
     // declarei as variáveis
-   int i = 1, j = 1, k = 1, l = 1;
+   int i = 1;
    char bispo[10] = "Bispo";
-   char torre[10] = "Torre";
-   char rainha[10] = "Rainha";
    char cavalo[10] = "Cavalo";
    int movimentocavalo = 1;
    
     /* usei o while no bispo, i = 1 e a cada repetição incrementa +1 no valor de i,
     então vai executa 5 vezes, quando i valer 6 o programa para e ele vai ter rodado 5 vezes.*/
    while (i <= 5){
-    printf("%s: cima, direita\n", bispo);
+    printf("%s: cima, ", bispo); /*essa parte externa do loop executa o "cima" e a recursividade "moverbispo" que é
+                                a parte interna executar a palavra "direita"*/
     i++;
+     moverbispo(2); // essa recursividade só vai ser executada 1 vez a cada repetição de while.
    }
 
    printf("\n");
 
-   /* aqui eu usei o do-while, j = 1  e a cada repetição incrementa +1 no valor de j,
-    então vai executa 5 vezes, quando a valer 6 o programa para e ele vai ter rodado 5 vezes.*/
-   do{
-    printf("%s: direita\n", torre);
-    j++;
-   } while (j <= 5);
+   movertorre(10); // aqui só a recursividade é o usuficiente pra executar o movimento da torre.
 
    printf("\n");
-   /* aqui usei o for, k = 1 e a cada repetição incrementa +1 no valor de k, 
-   então vai executa 8 vezes, quando k valer 9 o programa para e ele vai ter rodado 8 vezes.*/
-   for(k ; k <= 8; k++){
-    printf("%s: esquerda\n", rainha);
-   }
-   
-  printf("\n");
+  
+   moverrainha(10);  // aqui só a recursividade é o usuficiente pra executar o movimento da rainha.
 
-  /* criei a variável "movimentocavalo" e armazenei o valor 1 nela e no código 
+   printf("\n");
+
+
+ /*criei a variável "movimentocavalo" e armazenei o valor 1 nela e no código 
 coloquei um decremento, assim só vai executar uma vez porque
 depois da primeira execução o 1 vai virar 0 e com isso não vai mais executar.*/
 while (movimentocavalo--){
-   for(l; l <= 2; l++){
-        printf("%s: Baixo\n", cavalo); /* o loop interno vai rodar 2 vezes e quando sai dele vai ter um printf que estar
-        no loop externo pronto pra executar o último movimento do cavalo.*/
+   for(int l = 1; l > 0 && l <= 3; l++){ // usei a opção de múltipla condições, l tem que ser maior que 0 e menor ou igual a 3.
+    if(l == 2) continue; // usei o continue pra ele pular a iteração com o 2 e continuar com a próxima iteração.
+        printf("%s: cima\n", cavalo); 
     }
-    printf("%s: Esquerda\n", cavalo);
+    printf("%s: direita\n", cavalo);
 }
     return 0;
 }
